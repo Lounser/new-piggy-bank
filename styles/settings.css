@@ -177,4 +177,43 @@ footer {
   padding: 50px 0px;
   text-align: center;
   border-top: 1px solid #333;
+}
+
+@media screen and (max-width: 600px) {
+  section {
+    padding: 20px;
+  }
+  .hero h2 {
+    font-size: 1.5em;
+  }
+  .hero p {
+    font-size: 1em;
+  }
+  #save-settings {
+    padding: 10px 20px;
+  }
+}
+@media screen and (max-width: 498px) {
+  body {
+    overflow-x: hidden;
+  }
+  section {
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 0.75em;
+    padding: 15px;
+  }
+  .hero h2 {
+    font-size: 1.25em;
+  }
+  .hero p {
+    font-size: 0.875em;
+  }
+  #save-settings {
+    padding: 10px 15px;
+    font-size: 0.875em;
+  }
 }/*# sourceMappingURL=settings.css.map */
