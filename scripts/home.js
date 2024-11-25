@@ -21,3 +21,12 @@ themeSwitchCheckbox.addEventListener('change', function() {
   }
   localStorage.setItem('darkMode', this.checked);
 });
+document.addEventListener('DOMContentLoaded', () => {
+  const savedSettings = JSON.parse(localStorage.getItem('piggyBankSettings')) || {};
+  const customStyle = savedSettings.customStyle || '';
+  if (customStyle) {
+      const styleElement = document.createElement('style');
+      styleElement.textContent = customStyle;
+      document.head.appendChild(styleElement);
+  }
+});

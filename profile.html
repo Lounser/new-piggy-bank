@@ -9,15 +9,16 @@
     <link rel="icon" href="https://img.icons8.com/?size=100&id=qtBZBdsTFtlT&format=png&color=000000" type="image/png">
     <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
     <script defer src="scripts/profile.js"></script>
+    <script src="scripts/script.js"></script>
     <base href="images/">
 </head>
 <body>
     <header>
         <nav id="navigation">
             <ul>
-                <li><a href="https://lounser.github.io/new-piggy-bank/profile.html"><img src="https://img.icons8.com/?size=100&id=R2rV4MQlV0ot&format=png&color=000000" alt="Профиль" width="24" height="24">Профиль</a></li>
-                <li><a href="https://lounser.github.io/new-piggy-bank/index.html"><img src="https://img.icons8.com/?size=100&id=jDwpGuHnarDq&format=png&color=000000" alt="Главная" width="24" height="24">Главная</a></li>
-                <li><a href="/settings"><img src="https://img.icons8.com/?size=100&id=N1xaXJg6g2Eq&format=png&color=000000" alt="Настройки" width="24" height="24">Настройки</a></li>
+                <li><a href="/my-piggy-bank/profile.html"><img src="https://img.icons8.com/?size=100&id=R2rV4MQlV0ot&format=png&color=000000" alt="Профиль" width="24" height="24">Профиль</a></li>
+                <li><a href="/my-piggy-bank/index.html"><img src="https://img.icons8.com/?size=100&id=jDwpGuHnarDq&format=png&color=000000" alt="Главная" width="24" height="24">Главная</a></li>
+                <li><a href="/my-piggy-bank/settings.html"><img src="https://img.icons8.com/?size=100&id=N1xaXJg6g2Eq&format=png&color=000000" alt="Настройки" width="24" height="24">Настройки</a></li>
             </ul>
         </nav>
         <h1>PIGGY BANK</h1>
@@ -91,11 +92,9 @@
                 <p>Среднее количество пополнений в день: <span id="avg-daily-transactions">0</span></p>
             </div>
             <div class="charts-container">
-                <!-- <canvas id="progressChart"></canvas>   -->
                 <canvas id="distributionChart"></canvas> 
                 <button id="update-charts" class="update-button">
                     <p class="updater-text">Обновить графики</p>
-                    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 5.83L15.17 9l-1.41 1.41L12 8.24 8.83 12l-1.41-1.41L12 5.83zm5.33 12.33l-1.41 1.41L12 17.76 8.83 21l-1.41-1.41L12 17.76 15.17 21l1.41-1.41z"/></svg> -->
                     <span class="loading-indicator" style="display: none;">Обновление...</span> 
                 </button> 
             </div>
@@ -104,13 +103,12 @@
         <section id="leaderboard">
             <h2>Таблица лидеров</h2>
             <ol id="leaderboard-list">
-                <!-- Лидеры будут отображаться здесь -->
             </ol>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2023 My Piggy Bank. Все права защищены.</p>
+        <p>&copy; 2024 My Piggy Bank. Все права защищены.</p>
         <p>Сделано в Волжском Политихеническом Техникуме.</p>
         <p>Все права защищены.</p>
         

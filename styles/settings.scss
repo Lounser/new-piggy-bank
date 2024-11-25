@@ -40,15 +40,14 @@ body {
   justify-content: center;
   align-items: center;
   margin: 0 10px;
-  
-  text-align: center; /* Center text within list items */
+  text-align: center;
 }
 
 #navigation a {
   text-decoration: none;
   color: #333;
   transition: color 0.3s ease;
-  display: block; /* Make links take full list item width */
+  display: block;
 
 }
 
@@ -83,15 +82,15 @@ main{
 .theme-switch input[type="checkbox"]:checked + label {
   background-color: #f3ad21;
 }
-/* Sections */
 section {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  background-color: #fff; /* added background */
+  background-color: #fff;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  gap: 20px;
   padding: 50px;
   line-height: 30px;
   font-size: 1.3rem;
@@ -101,10 +100,9 @@ section {
   gap: 1.25rem;
   margin-top: 30px;
 }
-/* Hero Section (Adjust as needed) */
 .hero {
     text-align: center;
-    padding: 40px 0; /* Added padding to top and bottom */
+    padding: 40px 0;
     margin-bottom: 20px;
 }
 
@@ -118,7 +116,7 @@ section {
   margin-bottom: 20px;
 }
 
-.action-button {
+#save-settings {
     display: inline-block;
     padding: 15px 30px;
     background-color: #f3ad21;
@@ -129,55 +127,9 @@ section {
 
 }
 
-.action-button:hover {
+#save-settings:hover {
     background-color: #eea30d;
 }
-
-/* Feature/Benefit Lists (Adjust as needed) */
-.feature-list, .benefit-list {
-  list-style: disc;
-  padding-left: 20px;
-}
-
-.feature-list li, .benefit-list li {
-  margin-bottom: 10px;
-}
-
-/* Testimonials (Adjust as needed) */
-.testimonials blockquote {
-  border-left: 5px solid #ddd;
-  padding: 20px;
-  margin-bottom: 20px;
-  font-style: italic;
-}
-
-.testimonials cite {
-  display: block;
-  text-align: right;
-  font-style: normal;
-  margin-top: 10px;
-}
-
-
-
-/* Footer */
-footer {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  gap: 1.875rem;
-  margin-top: max(40px, env(safe-area-inset-top));
-  bottom: 0;
-  left: 0;
-  flex: 0 0 auto;
-  width: 100%;
-  background-color: #212121;
-  color: #fff;
-  padding: 50px 0px;
-  text-align: center;
-  border-top: 1px solid #333;
-}
-
 
 /* Dark Mode Styles */
 body.dark {
@@ -210,4 +162,20 @@ body.dark #navigation a:hover {
 
 body.dark footer {
     background-color: #1a1a1a;
+}
+footer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1.875rem;
+  margin-top: max(40px, env(safe-area-inset-top));
+  bottom: 0;
+  left: 0;
+  flex: 0 0 auto;
+  width: 100%;
+  background-color: #212121;
+  color: #fff;
+  padding: 50px 0px;
+  text-align: center;
+  border-top: 1px solid #333;
 }

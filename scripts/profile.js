@@ -404,24 +404,40 @@ function updateLeaderboard() {
     const sortedPiggyBanks = piggyBanks.sort((a, b) => b.points - a.points);
     leaderboardList.innerHTML = '';
 
+    // Загрузка настроек пользователя из localStorage с обработкой ошибок
+    let userName = '';
+    let userImage = 'images/user-icons/default.png'; // Изображение по умолчанию
+
+    try {
+        const settings = JSON.parse(localStorage.getItem('piggyBankSettings')) || {};
+        userName = settings.username || 'Неизвестный пользователь';
+        userImage = settings.userImage || userImage; // Используем default, если userImage не задан
+    } catch (error) {
+        console.error('Ошибка при загрузке настроек:', error);
+        userName = 'Неизвестный пользователь';
+    }
+
     sortedPiggyBanks.forEach((piggyBank, index) => {
         const listItem = document.createElement('li');
         const achievementsHTML = Object.entries(achievements)
             .map(([achievementName, achievementData]) => {
                 const progress = Math.min(100, (piggyBank.points / achievementData.goal) * 100);
-                const imagePath = `${achievementImagesPath}${achievementData.imagePath}`; // Используем переменную пути
+                const imagePath = `${achievementImagesPath}${achievementData.imagePath}`;
                 return `
                     <div class="achievement" data-achievement="${achievementName}" data-goal="${achievementData.goal}">
                         ${progress === 100 ? `<img src="${imagePath}" alt="${achievementName}">` : ''}
-                
-                        </div>
                     </div>
                 `;
             })
             .join('');
+
         listItem.innerHTML = `
             <span>${index + 1}. </span>
-            <span>${piggyBank.name}</span> - 
+            <div class="user-info">
+                <img src="${userImage}" alt="Иконка пользователя" class="leaderboard-icon">
+                <span class="username">${userName}</span>
+            </div>
+            <span>Копилка: ${piggyBank.name}</span> -
             <span>${piggyBank.current.toFixed(2)}</span>₽
             <div class="achievements">${achievementsHTML}</div>
         `;
@@ -429,7 +445,6 @@ function updateLeaderboard() {
     });
     addAchievementListeners();
 }
-
 
 
 function addAchievementListeners() {
@@ -737,4 +752,34 @@ document.addEventListener('DOMContentLoaded', () => {
     createDistributionChart(piggyBanks);
     updateStatistics(piggyBanks);
     updateLeaderboard();
+
+    // Обработка настроек из localStorage с обработкой ошибок
+    let savedSettings = {};
+    try {
+        const storedSettings = localStorage.getItem('piggyBankSettings');
+        savedSettings = storedSettings ? JSON.parse(storedSettings) : {};
+    } catch (error) {
+        console.error("Ошибка при загрузке настроек из localStorage:", error);
+        // Можно добавить обработку ошибки, например, показ сообщения пользователю
+    }
+
+    const disableProfileCharts = savedSettings.disableProfileCharts || false;
+    const disableTransactionCharts = savedSettings.disableTransactionCharts || false;
+
+    // Скрытие графиков на основе настроек
+    if (disableProfileCharts) {
+        const distributionChart = document.getElementById('distributionChart');
+        if (distributionChart) { // Проверка на существование элемента, чтобы избежать ошибок
+            distributionChart.style.display = 'none';
+        }
+    }
+
+    if (disableTransactionCharts) {
+        const transactionCharts = document.querySelectorAll('.piggy-bank canvas.transactions-chart');
+        transactionCharts.forEach(chart => {
+            if (chart) { // Проверка на существование элемента
+                chart.style.display = 'none';
+            }
+        });
+    }
 });

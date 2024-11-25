@@ -70,8 +70,6 @@ h1 {
   margin: 20px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  
 
 }
 .theme-switch input[type="checkbox"] {
@@ -82,21 +80,14 @@ h1 {
   cursor: pointer;
   padding: 5px 10px;
   border-radius: 20px;
+  background-color: #ddd;
   transition: background-color 0.3s ease;
-  
 }
 
 .theme-switch input[type="checkbox"]:checked + label {
   background-color: #f3ad21;
 }
-.theme-switch.dark label {
-  background-color: #ff0000; // Darker background for dark mode
-  color: #fff; // White text for better contrast
-}
 
-.theme-switch.dark input[type="checkbox"]:checked + label {
-  background-color: #f3ad21; // Retain highlight color when checked
-}
 #filters {
   display: flex;
   align-items: center;
@@ -378,7 +369,7 @@ h1 {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: #dedede;
+  background-color: #ccc;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -498,7 +489,7 @@ body.dark {
 }
 
 .theme-switch input[type=checkbox]:checked + label.dark {
-  background-color: #f3ad21;
+  background-color: #1f1f1f;
   color: #fff;
 }
 
@@ -775,26 +766,12 @@ body.dark #navigation a {
     transform: scale(0.8) rotate(90deg);
   }
 }
+
+
 .achievement{
   display: flex;
   align-items: center;
   margin: 0 5px;
   justify-content: center;
   width: 100%;
-
-}
-.leaderboard-icon {
-  width: 20px;
-  height: 20px;
-  margin-right: 5px;
-  vertical-align: middle;
-}
-.user-info {
-  display: flex;
-  align-items: center;
-  margin-right: 10px;
-}
-
-.user-info .username {
-  margin-left: 5px; 
 }
